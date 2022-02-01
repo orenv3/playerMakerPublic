@@ -25,6 +25,7 @@ import org.springframework.web.bind.MissingPathVariableException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.context.request.async.AsyncRequestTimeoutException;
@@ -48,7 +49,11 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 		if (!CollectionUtils.isEmpty(supportedMethods)) {
 			headers.setAllow(supportedMethods);
 		}
-		return handleExceptionInternal(ex, null, headers, status, request);
+		ErrorOutput errOutput = new ErrorOutput();
+		errOutput.setStatus(status.getReasonPhrase());
+		errOutput.setDescription(ex.getMessage());
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errOutput);
+//		return handleExceptionInternal(ex, null, headers, status, request);
 	}
 
 	/**
@@ -74,8 +79,11 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 				}
 			}
 		}
-
-		return handleExceptionInternal(ex, null, headers, status, request);
+		ErrorOutput errOutput = new ErrorOutput();
+		errOutput.setStatus(status.getReasonPhrase());
+		errOutput.setDescription(ex.getMessage());
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errOutput);
+//		return handleExceptionInternal(ex, null, headers, status, request);
 	}
 
 	/**
@@ -89,8 +97,12 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 	 */
 	public ResponseEntity<Object> handleHttpMediaTypeNotAcceptable(
 			HttpMediaTypeNotAcceptableException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-
-		return handleExceptionInternal(ex, null, headers, status, request);
+		
+		ErrorOutput errOutput = new ErrorOutput();
+		errOutput.setStatus(status.getReasonPhrase());
+		errOutput.setDescription(ex.getMessage());
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errOutput);
+//		return handleExceptionInternal(ex, null, headers, status, request);
 	}
 
 	/**
@@ -105,8 +117,12 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 	 */
 	public ResponseEntity<Object> handleMissingPathVariable(
 			MissingPathVariableException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-
-		return handleExceptionInternal(ex, null, headers, status, request);
+		
+		ErrorOutput errOutput = new ErrorOutput();
+		errOutput.setStatus(status.getReasonPhrase());
+		errOutput.setDescription(ex.getMessage());
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errOutput);
+//		return handleExceptionInternal(ex, null, headers, status, request);
 	}
 
 	/**
@@ -120,8 +136,12 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 	 */
 	public ResponseEntity<Object> handleMissingServletRequestParameter(
 			MissingServletRequestParameterException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-
-		return handleExceptionInternal(ex, null, headers, status, request);
+		
+		ErrorOutput errOutput = new ErrorOutput();
+		errOutput.setStatus(status.getReasonPhrase());
+		errOutput.setDescription(ex.getMessage());
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errOutput);
+//		return handleExceptionInternal(ex, null, headers, status, request);
 	}
 
 	/**
@@ -136,7 +156,12 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 	public ResponseEntity<Object> handleServletRequestBindingException(
 			ServletRequestBindingException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
 
-		return handleExceptionInternal(ex, null, headers, status, request);
+		ErrorOutput errOutput = new ErrorOutput();
+		errOutput.setStatus(status.getReasonPhrase());
+		errOutput.setDescription(ex.getMessage());
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errOutput);
+		
+//		return handleExceptionInternal(ex, null, headers, status, request);
 	}
 
 	/**
@@ -151,7 +176,12 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 	public ResponseEntity<Object> handleConversionNotSupported(
 			ConversionNotSupportedException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
 
-		return handleExceptionInternal(ex, null, headers, status, request);
+		ErrorOutput errOutput = new ErrorOutput();
+		errOutput.setStatus(status.getReasonPhrase());
+		errOutput.setDescription(ex.getMessage());
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errOutput);
+		
+//		return handleExceptionInternal(ex, null, headers, status, request);
 	}
 
 	/**
@@ -166,7 +196,11 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 	public ResponseEntity<Object> handleTypeMismatch(
 			TypeMismatchException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
 
-		return handleExceptionInternal(ex, null, headers, status, request);
+		ErrorOutput errOutput = new ErrorOutput();
+		errOutput.setStatus(status.getReasonPhrase());
+		errOutput.setDescription(ex.getMessage());
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errOutput);
+//		return handleExceptionInternal(ex, null, headers, status, request);
 	}
 
 	/**
@@ -181,7 +215,11 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 	public ResponseEntity<Object> handleHttpMessageNotReadable(
 			HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
 
-		return handleExceptionInternal(ex, null, headers, status, request);
+		handleExceptionInternal(ex, null, headers, status, request);
+		ErrorOutput errOutput = new ErrorOutput();
+		errOutput.setStatus(status.getReasonPhrase());
+		errOutput.setDescription(ex.getMessage());
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errOutput);
 	}
 
 	/**
@@ -196,7 +234,12 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 	public ResponseEntity<Object> handleHttpMessageNotWritable(
 			HttpMessageNotWritableException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
 
-		return handleExceptionInternal(ex, null, headers, status, request);
+		ErrorOutput errOutput = new ErrorOutput();
+		errOutput.setStatus(status.getReasonPhrase());
+		errOutput.setDescription(ex.getMessage());
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errOutput);
+		
+//		return handleExceptionInternal(ex, null, headers, status, request);
 	}
 
 	/**
@@ -211,7 +254,15 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 	public ResponseEntity<Object> handleMethodArgumentNotValid(
 			MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
 
-		return handleExceptionInternal(ex, null, headers, status, request);
+//		Throwable rootCause = ex.getBindingResult().gete;
+//		String f=rootCause.getMessage();
+//		if(rootCause.getMessage().toString()!=null)
+//			errOutput.setDescription(ex.getCause().getMessage());
+		ErrorOutput errOutput = new ErrorOutput();
+		errOutput.setStatus(status.getReasonPhrase());
+		errOutput.setDescription(ex.getMessage());
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errOutput);
+//		return handleExceptionInternal(ex, null, headers, status, request);
 	}
 
 	/**
@@ -226,7 +277,13 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 	public ResponseEntity<Object> handleMissingServletRequestPart(
 			MissingServletRequestPartException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
 
-		return handleExceptionInternal(ex, null, headers, status, request);
+		ErrorOutput errOutput = new ErrorOutput();
+		errOutput.setStatus(status.getReasonPhrase());
+		errOutput.setDescription(ex.getMessage());
+		errOutput.setStatus(status.getReasonPhrase());
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errOutput);
+		
+//		return handleExceptionInternal(ex, null, headers, status, request);
 	}
 
 	/**
@@ -241,7 +298,12 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 	public ResponseEntity<Object> handleBindException(
 			BindException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
 
-		return handleExceptionInternal(ex, null, headers, status, request);
+		ErrorOutput errOutput = new ErrorOutput();
+		errOutput.setStatus(status.getReasonPhrase());
+		errOutput.setDescription(ex.getMessage());
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errOutput);
+		
+//		return handleExceptionInternal(ex, null, headers, status, request);
 	}
 
 	/**
@@ -257,7 +319,12 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 	public ResponseEntity<Object> handleNoHandlerFoundException(
 			NoHandlerFoundException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
 
-		return handleExceptionInternal(ex, null, headers, status, request);
+		ErrorOutput errOutput = new ErrorOutput();
+		errOutput.setStatus(status.getReasonPhrase());
+		errOutput.setDescription(ex.getMessage());
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errOutput);
+		
+//		return handleExceptionInternal(ex, null, headers, status, request);
 	}
 
 	/**
@@ -285,7 +352,12 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 			}
 		}
 
-		return handleExceptionInternal(ex, null, headers, status, webRequest);
+		ErrorOutput errOutput = new ErrorOutput();
+		errOutput.setStatus(status.getReasonPhrase());
+		errOutput.setDescription(ex.getMessage());
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errOutput);
+		
+//		return handleExceptionInternal(ex, null, headers, status, webRequest);
 	}
 
 	/**
@@ -305,7 +377,20 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 		if (HttpStatus.INTERNAL_SERVER_ERROR.equals(status)) {
 			request.setAttribute(WebUtils.ERROR_EXCEPTION_ATTRIBUTE, ex, WebRequest.SCOPE_REQUEST);
 		}
-		return new ResponseEntity<>(body, headers, status);
+		ErrorOutput errOutput = new ErrorOutput();
+		errOutput.setStatus(status.getReasonPhrase());
+		errOutput.setDescription(ex.getMessage());
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errOutput);
+		
+//		return new ResponseEntity<>(body, headers, status);
+	}
+	
+	@ExceptionHandler(RuntimeException.class)
+	public ResponseEntity<Exception> handleAllExceptions(RuntimeException ex) {
+		ErrorOutput errOutput = new ErrorOutput();
+		errOutput.setStatus("500 Internal Server Error");
+		errOutput.setDescription(ex.getMessage());
+	    return new ResponseEntity<Exception>(ex, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
 }
