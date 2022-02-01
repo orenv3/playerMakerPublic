@@ -7,11 +7,8 @@ import java.util.Map;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
-import com.playermaker.errorsHandler.ErrorOutput;
 import com.playermaker.errorsHandler.GlobalExceptionHandler;
 import com.playermaker.utils.ListOfPlayers;
 import com.playermaker.utils.PlayerMakerUtils;
@@ -25,7 +22,7 @@ public class PlayerMakerServiceImpl implements PlayerMakerService{
 	GlobalExceptionHandler j;
 	
 	@Override
-	public PlayerOutput getMostAttended(PlayerInput in) throws Exception {
+	public PlayerOutput getMostAttended(PlayerInput in){
 		logger.info("Service: PlayerMakerService implimentation excuted");
 		PlayerOutput out = new PlayerOutput();
 		Map<String,Integer> participated = new HashMap<String,Integer>();
@@ -44,17 +41,17 @@ public class PlayerMakerServiceImpl implements PlayerMakerService{
 		
 		logger.info("Find the max value in the HashMap in order to find the the length of the target Array");
 		int arrayLangth = PlayerMakerUtils.findTheMax(participated);
-		String[] PlayersParticipateArray = new String[arrayLangth+1];
+//		String[] PlayersParticipateArray = new String[arrayLangth+1];
 		ListOfPlayers[] PlayersParticipateArray2 = new ListOfPlayers[arrayLangth+1]; 
 		
 		logger.info("Convert the HashMap into Array");
-		PlayersParticipateArray = PlayerMakerUtils.setPlayersParticipateArray(PlayersParticipateArray, participated);
+//		PlayersParticipateArray = PlayerMakerUtils.setPlayersParticipateArray(PlayersParticipateArray, participated);
 		PlayersParticipateArray2 = PlayerMakerUtils.setPlayersParticipateArray(PlayersParticipateArray2, participated);
 		
 		
 		out.setParticipatedPlayers(PlayerMakerUtils.getPlayersParticipateArray(PlayersParticipateArray2, in.getRequiredTopPlayers()));
 //		out.setParticipatedPlayers(PlayerMakerUtils.getPlayersParticipateArray(PlayersParticipateArray, in.getRequiredTopPlayers()));
-		
+		logger.info("The output is: "+out);
 		return out;
 	}
 

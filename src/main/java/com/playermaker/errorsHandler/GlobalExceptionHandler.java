@@ -52,6 +52,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 		ErrorOutput errOutput = new ErrorOutput();
 		errOutput.setStatus(status.getReasonPhrase());
 		errOutput.setDescription(ex.getMessage());
+		log.debug(ex.getMessage(),ex);
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errOutput);
 //		return handleExceptionInternal(ex, null, headers, status, request);
 	}
@@ -82,6 +83,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 		ErrorOutput errOutput = new ErrorOutput();
 		errOutput.setStatus(status.getReasonPhrase());
 		errOutput.setDescription(ex.getMessage());
+		log.debug(ex.getMessage(),ex);
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errOutput);
 //		return handleExceptionInternal(ex, null, headers, status, request);
 	}
@@ -101,6 +103,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 		ErrorOutput errOutput = new ErrorOutput();
 		errOutput.setStatus(status.getReasonPhrase());
 		errOutput.setDescription(ex.getMessage());
+		log.debug(ex.getMessage(),ex);
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errOutput);
 //		return handleExceptionInternal(ex, null, headers, status, request);
 	}
@@ -121,6 +124,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 		ErrorOutput errOutput = new ErrorOutput();
 		errOutput.setStatus(status.getReasonPhrase());
 		errOutput.setDescription(ex.getMessage());
+		log.debug(ex.getMessage(),ex);
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errOutput);
 //		return handleExceptionInternal(ex, null, headers, status, request);
 	}
@@ -140,6 +144,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 		ErrorOutput errOutput = new ErrorOutput();
 		errOutput.setStatus(status.getReasonPhrase());
 		errOutput.setDescription(ex.getMessage());
+		log.debug(ex.getMessage(),ex);
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errOutput);
 //		return handleExceptionInternal(ex, null, headers, status, request);
 	}
@@ -159,6 +164,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 		ErrorOutput errOutput = new ErrorOutput();
 		errOutput.setStatus(status.getReasonPhrase());
 		errOutput.setDescription(ex.getMessage());
+		log.debug(ex.getMessage(),ex);
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errOutput);
 		
 //		return handleExceptionInternal(ex, null, headers, status, request);
@@ -179,6 +185,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 		ErrorOutput errOutput = new ErrorOutput();
 		errOutput.setStatus(status.getReasonPhrase());
 		errOutput.setDescription(ex.getMessage());
+		log.debug(ex.getMessage(),ex);
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errOutput);
 		
 //		return handleExceptionInternal(ex, null, headers, status, request);
@@ -199,6 +206,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 		ErrorOutput errOutput = new ErrorOutput();
 		errOutput.setStatus(status.getReasonPhrase());
 		errOutput.setDescription(ex.getMessage());
+		log.debug(ex.getMessage(),ex);
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errOutput);
 //		return handleExceptionInternal(ex, null, headers, status, request);
 	}
@@ -219,6 +227,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 		ErrorOutput errOutput = new ErrorOutput();
 		errOutput.setStatus(status.getReasonPhrase());
 		errOutput.setDescription(ex.getMessage());
+		log.debug(ex.getMessage(),ex);
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errOutput);
 	}
 
@@ -237,6 +246,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 		ErrorOutput errOutput = new ErrorOutput();
 		errOutput.setStatus(status.getReasonPhrase());
 		errOutput.setDescription(ex.getMessage());
+		log.debug(ex.getMessage(),ex);
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errOutput);
 		
 //		return handleExceptionInternal(ex, null, headers, status, request);
@@ -261,6 +271,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 		ErrorOutput errOutput = new ErrorOutput();
 		errOutput.setStatus(status.getReasonPhrase());
 		errOutput.setDescription(ex.getMessage());
+		log.debug(ex.getMessage(),ex);
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errOutput);
 //		return handleExceptionInternal(ex, null, headers, status, request);
 	}
@@ -281,6 +292,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 		errOutput.setStatus(status.getReasonPhrase());
 		errOutput.setDescription(ex.getMessage());
 		errOutput.setStatus(status.getReasonPhrase());
+		log.debug(ex.getMessage(),ex);
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errOutput);
 		
 //		return handleExceptionInternal(ex, null, headers, status, request);
@@ -301,6 +313,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 		ErrorOutput errOutput = new ErrorOutput();
 		errOutput.setStatus(status.getReasonPhrase());
 		errOutput.setDescription(ex.getMessage());
+		log.debug(ex.getMessage(),ex);
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errOutput);
 		
 //		return handleExceptionInternal(ex, null, headers, status, request);
@@ -322,6 +335,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 		ErrorOutput errOutput = new ErrorOutput();
 		errOutput.setStatus(status.getReasonPhrase());
 		errOutput.setDescription(ex.getMessage());
+		log.debug(ex.getMessage(),ex);
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errOutput);
 		
 //		return handleExceptionInternal(ex, null, headers, status, request);
@@ -355,6 +369,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 		ErrorOutput errOutput = new ErrorOutput();
 		errOutput.setStatus(status.getReasonPhrase());
 		errOutput.setDescription(ex.getMessage());
+		log.debug(ex.getMessage(),ex);
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errOutput);
 		
 //		return handleExceptionInternal(ex, null, headers, status, webRequest);
@@ -380,6 +395,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 		ErrorOutput errOutput = new ErrorOutput();
 		errOutput.setStatus(status.getReasonPhrase());
 		errOutput.setDescription(ex.getMessage());
+		log.debug(ex.getMessage(),ex);
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errOutput);
 		
 //		return new ResponseEntity<>(body, headers, status);
@@ -390,7 +406,9 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 		ErrorOutput errOutput = new ErrorOutput();
 		errOutput.setStatus("500 Internal Server Error");
 		errOutput.setDescription(ex.getMessage());
+		log.debug(ex.getMessage(),ex);
 	    return new ResponseEntity<Exception>(ex, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
 }
+

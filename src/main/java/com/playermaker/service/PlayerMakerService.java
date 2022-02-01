@@ -11,10 +11,23 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * 
+ * @author Vinogura Oren
+ *
+ */
 @Component
 public interface PlayerMakerService {
 
-	PlayerOutput getMostAttended(PlayerInput in) throws Exception;
+	/**
+	 * Api service: receive an array of players that were participated in all the games and return the top N players that participated the most
+	 * @param in PlayerInput Object { int requiredTopPlayers,  String[][] participatedPlayers }
+
+}
+	 * @return PlayerOutput Object that contains List<String> of the most participated players
+	 * 
+	 */
+	PlayerOutput getMostAttended(PlayerInput in);
 	
 	@Getter
 	@Setter
@@ -23,7 +36,7 @@ public interface PlayerMakerService {
 		@Min(1)
 		private int requiredTopPlayers;
 		
-//		@NotEmpty
+		@NotEmpty
 		private String[][] participatedPlayers;
 	}
 	
